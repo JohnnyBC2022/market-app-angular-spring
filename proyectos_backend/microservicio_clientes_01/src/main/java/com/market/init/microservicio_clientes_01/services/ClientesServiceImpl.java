@@ -19,7 +19,7 @@ public class ClientesServiceImpl implements ClientesService {
 
     @Override
     public boolean registrarCliente(Cliente cliente){
-        if(clientesRepository.findById(cliente.getUsuario())!=null){
+        if(clientesRepository.findById(cliente.getUsuario()).isPresent()){
             return false;
         }
         clientesRepository.save(cliente);
