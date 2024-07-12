@@ -17,3 +17,7 @@ body {
 #login .container #login-row #login-column #login-box #login-form #register-link {
   margin-top: -85px;
 }
+
+#login h2:first-child{
+  color: #17a2b8;
+}
