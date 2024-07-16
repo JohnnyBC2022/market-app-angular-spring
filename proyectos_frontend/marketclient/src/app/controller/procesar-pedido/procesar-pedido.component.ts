@@ -2,6 +2,7 @@ import { ProcesarPedidoService } from './../../service/procesar-pedido.service';
 import { Component, OnInit } from '@angular/core';
 import { Categoria } from '../../model/Categoria';
 import { Producto } from '../../model/Producto';
+import { CestaItem } from '../../model/CestaItem';
 
 @Component({
   selector: 'app-procesar-pedido',
@@ -12,6 +13,7 @@ export class ProcesarPedidoComponent implements OnInit{
   categorias:Categoria[];
   productos:Producto[];
   idCategoriaSel:number;
+  cesta:CestaItem[];
 
   constructor(private ProcesarPedidoService:ProcesarPedidoService){
 
@@ -23,5 +25,26 @@ export class ProcesarPedidoComponent implements OnInit{
 
   productosCategoria(){
     this.ProcesarPedidoService.productosCategorias(this.idCategoriaSel).subscribe(p=>this.productos=p);
+  }
+
+  agregarProductoCesta(producto:Producto){
+    if(producto.unidades <= producto.stock){
+      let item=new CestaItem();
+      item.producto=producto;
+      item.unidades=producto.unidades;
+      //actualizar stock
+      producto.stock=producto.stock - producto.unidades;
+      this.cesta.push(item);
+    } else {
+      alert("no hay stock suficiente");
+    }
+  }
+
+  eliminarProductoCesta(pos:number){
+    let item=this.cesta[pos];
+    this.cesta.splice(pos,1)
+    // localizamos el producto para actualizar el stock
+    let producto=this.productos.find(p=>p.idProducto==item.producto.idProducto);
+    producto.stock = producto.stock + item.unidades;
   }
 }
