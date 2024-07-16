@@ -26,7 +26,7 @@
               <td>{{p.precioUnitario}}</td>
               <td>{{p.stock}}</td>
               <td><input type="text" [(ngModel)]="p.unidades" class="form-control" ></td>
-              <td><input type="button" class="form-control" value="Agregar cesta" ></td>
+              <td><input type="button" class="form-control" value="Agregar cesta"  (click)="agregarProductoCesta(p);"></td>
           </tr>
 
         </tbody>
@@ -42,10 +42,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr >
-              <td></td>
-              <td></td>
-              <td><input type="button" class="form-control" value="Quitar cesta" ></td>
+          <tr *ngFor="let c of cesta; index as i">
+              <td>{{c.producto.nombre}}</td>
+              <td>{{c.producto.unidades}}</td>
+              <td><input type="button" class="form-control" value="Quitar cesta" (click)="eliminarProductoCesta(i)"></td>
           </tr>
 
         </tbody>
