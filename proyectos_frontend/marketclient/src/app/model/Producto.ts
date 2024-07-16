@@ -4,4 +4,5 @@ export class Producto {
   precioUnitario:number;
   stock:number;
   idCategoria:number;
+  unidades:number;
 }

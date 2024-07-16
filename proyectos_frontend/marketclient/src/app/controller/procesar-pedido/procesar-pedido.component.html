@@ -3,8 +3,8 @@
   <br><br>
     <div class="form-control">
         <label class="col-sm-2 h4" >Seleccione categoría: </label>
-        <select id="sel1" class="form-select form-control-lg" >
-          
+        <select id="sel1" class="form-select form-control-lg" [(ngModel)]="idCategoriaSel" (change)="productosCategoria();">
+          <option *ngFor="let c of categorias" value="{{c.idCategoria}}">{{c.categoria}}</option>
         </select>
     </div>
     <div>
@@ -21,11 +21,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr >
-              <td></td>
-              <td></td>
-              <td></td>
-              <td><input type="text" class="form-control" ></td>
+          <tr *ngFor="let p of productos">
+              <td>{{p.nombre}}</td>
+              <td>{{p.precioUnitario}}</td>
+              <td>{{p.stock}}</td>
+              <td><input type="text" [(ngModel)]="p.unidades" class="form-control" ></td>
               <td><input type="button" class="form-control" value="Agregar cesta" ></td>
           </tr>
 
