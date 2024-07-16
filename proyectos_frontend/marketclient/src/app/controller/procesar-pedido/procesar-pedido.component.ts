@@ -21,6 +21,7 @@ export class ProcesarPedidoComponent implements OnInit{
 
   ngOnInit(): void {
       this.ProcesarPedidoService.categorias().subscribe(c=>this.categorias=c)
+      this.cesta=[];
   }
 
   productosCategoria(){
@@ -45,6 +46,6 @@ export class ProcesarPedidoComponent implements OnInit{
     this.cesta.splice(pos,1)
     // localizamos el producto para actualizar el stock
     let producto=this.productos.find(p=>p.idProducto==item.producto.idProducto);
-    producto.stock = producto.stock + item.unidades;
+    producto.stock = Number(producto.stock) + Number(item.unidades);
   }
 }
