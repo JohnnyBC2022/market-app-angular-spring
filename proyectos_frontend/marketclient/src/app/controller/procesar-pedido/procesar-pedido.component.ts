@@ -25,7 +25,20 @@ export class ProcesarPedidoComponent implements OnInit{
   }
 
   productosCategoria(){
-    this.ProcesarPedidoService.productosCategorias(this.idCategoriaSel).subscribe(p=>this.productos=p);
+    this.ProcesarPedidoService.productosCategorias(this.idCategoriaSel).subscribe(p=>{
+      this.productos=p
+      this.actualizarStocks();
+    });
+  }
+  actualizarStocks(){
+    this.productos.forEach(p=>{
+      this.cesta.forEach(c=>{
+        //para cada producto de la categoría seleccionado recorremos la cesta de la compra, y si encontramos el producto en la cesta debemos actualizar su stock.
+        if(p.idProducto==c.producto.idProducto){
+          p.stock=p.stock-c.unidades;
+        }
+      })
+    })
   }
 
   agregarProductoCesta(producto:Producto){
