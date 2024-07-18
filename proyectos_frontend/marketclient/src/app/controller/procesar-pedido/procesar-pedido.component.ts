@@ -61,4 +61,6 @@ export class ProcesarPedidoComponent implements OnInit{
     let producto=this.productos.find(p=>p.idProducto==item.producto.idProducto);
     producto.stock = Number(producto.stock) + Number(item.unidades);
   }
+
+  
 }
