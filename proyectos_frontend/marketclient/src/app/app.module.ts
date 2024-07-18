@@ -7,13 +7,15 @@ import { LoginComponent } from './controller/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { RegistrarComponent } from './controller/registrar/registrar.component';
 import { ProcesarPedidoComponent } from './controller/procesar-pedido/procesar-pedido.component';
+import { ConsultarPedidosComponent } from './controller/consultar-pedidos/consultar-pedidos.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegistrarComponent,
-    ProcesarPedidoComponent
+    ProcesarPedidoComponent,
+    ConsultarPedidosComponent
   ],
   imports: [
     BrowserModule,
