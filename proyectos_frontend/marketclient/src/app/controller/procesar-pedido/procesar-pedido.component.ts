@@ -62,5 +62,7 @@ export class ProcesarPedidoComponent implements OnInit{
     producto.stock = Number(producto.stock) + Number(item.unidades);
   }
 
-  
+  procesarPedido(){
+    this.ProcesarPedidoService.enviarPedido(this.cesta, "user1").subscribe(r=>alert("pedido procesado")) //temporal hasta que lo conectemos todo
+  }
 }
