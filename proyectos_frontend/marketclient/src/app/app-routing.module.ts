@@ -7,11 +7,11 @@ import { RegistrarComponent } from './controller/registrar/registrar.component';
 import { PortadaComponent } from './controller/portada/portada.component';
 
 const routes: Routes = [
-  {path:"/login",component:LoginComponent},
-  {path:"/consultar", component:ConsultarPedidosComponent},
-  {path:"/procesar",component:ProcesarPedidoComponent},
-  {path:"/registrar", component:RegistrarComponent},
-  {path:"/portada", component:PortadaComponent}
+  {path:"login",component:LoginComponent},
+  {path:"consultar", component:ConsultarPedidosComponent},
+  {path:"procesar",component:ProcesarPedidoComponent},
+  {path:"registrar", component:RegistrarComponent},
+  {path:"portada", component:PortadaComponent}
 ];
 
 @NgModule({

@@ -21,6 +21,7 @@ export class LoginComponent {
       this.client = data;
       if (this.client != null) { //usuario válido
         this.menuComponent.cliente=this.client;
+        this.menuComponent.enabled=true;
         alert("Usuario autentificado");
       } else {
         alert("Usuario no autentificado")
