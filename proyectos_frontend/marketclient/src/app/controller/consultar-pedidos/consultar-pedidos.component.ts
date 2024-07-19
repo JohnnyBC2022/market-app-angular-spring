@@ -1,4 +1,5 @@
 import { Pedido } from '../../model/Pedido';
+import { MenuComponent } from '../menu/menu.component';
 import { ConsultarPedidosService } from './../../service/consultar-pedidos.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,12 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './consultar-pedidos.component.css'
 })
 export class ConsultarPedidosComponent implements OnInit{
-  usuario: string="user1";
   pedidos: Pedido[];
-  constructor(private ConsultarPedidosService:ConsultarPedidosService){
+  constructor(private ConsultarPedidosService:ConsultarPedidosService,private menuComponent:MenuComponent){
 
   }
   ngOnInit(): void {
-    this.ConsultarPedidosService.consultarPedidos(this.usuario).subscribe(p=>this.pedidos=p)
+    this.ConsultarPedidosService.consultarPedidos(this.menuComponent.cliente.usuario).subscribe(p=>this.pedidos=p)
   }
 }

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Cliente } from '../../model/Cliente';
 import { RegistrarService } from './../../service/registrar.service';
 import { Component } from '@angular/core';
@@ -9,11 +10,11 @@ import { Component } from '@angular/core';
 })
 export class RegistrarComponent {
   cliente:Cliente = new Cliente();
-  constructor(private RegistrarService:RegistrarService){
+  constructor(private RegistrarService:RegistrarService, private router:Router){
   }
   registrar(){
     this.RegistrarService.registrar(this.cliente).subscribe({
-      next:data=>alert("Usuario registrado"),
+      next:data=>this.router.navigate(["/login"]),
       error:err=>alert("Usuario ya existe, no se pudo registrar!")
     })
   }
