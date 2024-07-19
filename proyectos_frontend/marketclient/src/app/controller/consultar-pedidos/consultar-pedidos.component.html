@@ -22,7 +22,7 @@
               <tr *ngFor="let el of p.elementosPedido">
                 <td>{{el.producto.nombre}}</td>
                 <td>{{el.unidades}}</td>
-                <td>{{el.unidades*el.producto.precioUnitario}}</td>
+                <td>{{el.unidades*el.producto.precioUnitario | number: '1.2-2'}}</td>
               </tr>
             </tbody>
           </table>

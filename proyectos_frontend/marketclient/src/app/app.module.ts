@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { RegistrarComponent } from './controller/registrar/registrar.component';
 import { ProcesarPedidoComponent } from './controller/procesar-pedido/procesar-pedido.component';
 import { ConsultarPedidosComponent } from './controller/consultar-pedidos/consultar-pedidos.component';
+import { MenuComponent } from './controller/menu/menu.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ConsultarPedidosComponent } from './controller/consultar-pedidos/consul
     LoginComponent,
     RegistrarComponent,
     ProcesarPedidoComponent,
-    ConsultarPedidosComponent
+    ConsultarPedidosComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +26,6 @@ import { ConsultarPedidosComponent } from './controller/consultar-pedidos/consul
     FormsModule
   ],
   providers: [],
-  bootstrap: [ProcesarPedidoComponent]
+  bootstrap: [ConsultarPedidosComponent]
 })
 export class AppModule { }

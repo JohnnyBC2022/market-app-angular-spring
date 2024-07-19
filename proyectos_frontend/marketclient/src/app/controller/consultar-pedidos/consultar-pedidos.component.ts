@@ -8,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './consultar-pedidos.component.css'
 })
 export class ConsultarPedidosComponent implements OnInit{
-  usuario: string;
+  usuario: string="user1";
   pedidos: Pedido[];
   constructor(private ConsultarPedidosService:ConsultarPedidosService){
 
   }
   ngOnInit(): void {
-    this.ConsultarPedidosService.consultarPedidos("user1").subscribe(p=>this.pedidos=p)
+    this.ConsultarPedidosService.consultarPedidos(this.usuario).subscribe(p=>this.pedidos=p)
   }
 }
